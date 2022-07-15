@@ -12,11 +12,10 @@ const Header = () => {
                         <img src={logo} height="30" alt="" />
                     </Navbar.Brand>
                     <Navbar.Toggle />
-
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link className="color" href="#home">Home</Nav.Link>
-                        <Nav.Link className="color" href="#features">Features</Nav.Link>
-                        <Nav.Link className="color" href="#pricing">Pricing</Nav.Link>
+                        <Nav.Link className="color" href="#services">Services</Nav.Link>
+                        <Nav.Link className="color" href="#experts">Experts</Nav.Link>
                         <Navbar.Text>
                             Signed in as: <a href="#login">Mark Otto</a>
                         </Navbar.Text>
