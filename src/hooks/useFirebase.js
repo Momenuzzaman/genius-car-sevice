@@ -1,5 +1,5 @@
 import initializeAuthentication from "../Pages/Login/Firebase/firebase.init";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { useState } from "react";
 
 initializeAuthentication();
@@ -15,8 +15,15 @@ const useFirebase = () => {
                 setUser(user);
             });
     };
+    const logOut = () => {
+        signOut(auth)
+            .then(() => {
+                setUser({});
+            });
+    };
     return {
         user,
+        logOut,
         signInWithGoogle
     };
 };
