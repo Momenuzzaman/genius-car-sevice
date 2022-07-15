@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AuthProvider from './context/AuthProvider';
 import About from './Pages/About/About';
 import Booking from './Pages/Booking/Booking/Booking';
 import Home from './Pages/Home/Home/Home';
@@ -11,16 +12,17 @@ import Header from './Pages/Shared/Header/Header';
 function App() {
   return (
     <div>
-      <Header></Header>
-      <Routes>
-
-        <Route path="/home" element={<Home></Home>}></Route>
-        <Route path="/about" element={<About></About>}></Route>
-        <Route path="/booking/:serviceId" element={<Booking />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-      <Footer></Footer>
+      <AuthProvider>
+        <Header></Header>
+        <Routes>
+          <Route path="/home" element={<Home></Home>}></Route>
+          <Route path="/about" element={<About></About>}></Route>
+          <Route path="/booking/:serviceId" element={<Booking />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+        <Footer></Footer>
+      </AuthProvider>
     </div>
   );
 }
