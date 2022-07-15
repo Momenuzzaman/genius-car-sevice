@@ -1,0 +1,9 @@
+.notfound {
+  width: 100%;
+}
+.link {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+}
