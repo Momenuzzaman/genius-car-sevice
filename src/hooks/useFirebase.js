@@ -1,6 +1,7 @@
 import initializeAuthentication from "../Pages/Login/Firebase/firebase.init";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
+import { useEffect } from "react";
 
 initializeAuthentication();
 const useFirebase = () => {
@@ -21,9 +22,20 @@ const useFirebase = () => {
                 setUser({});
             });
     };
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user);
+            }
+            else {
+                setUser({});
+            }
+        });
+    }, []);
     return {
         user,
         logOut,
         signInWithGoogle
     };
 };
+export default useFirebase;
