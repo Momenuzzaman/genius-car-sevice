@@ -5,6 +5,7 @@ import useAuth from '../../../hooks/useAuth';
 import logo from '../../../images/logo.png';
 import Button from 'react-bootstrap/Button';
 import './Header.css';
+import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
     const { user, logOut } = useAuth();
@@ -17,11 +18,11 @@ const Header = () => {
                     </Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
-                        <Nav.Link className="color" as={Link} to="/home#home">Home</Nav.Link>
-                        <Nav.Link className="color" as={Link} to="/home#services">Services</Nav.Link>
-                        <Nav.Link className="color" as={Link} to="/home#experts">Experts</Nav.Link>
+                        <Nav.Link className="color" as={HashLink} to="/home#home">Home</Nav.Link>
+                        <Nav.Link className="color" as={HashLink} to="/home#services">Services</Nav.Link>
+                        <Nav.Link className="color" as={HashLink} to="/home#experts">Experts</Nav.Link>
                         {user.displayName ? <Button onClick={logOut} variant="dark" >Logout</Button> :
-                            <Nav.Link className="color" as={Link} to="/login">Login</Nav.Link>
+                            <Nav.Link className="color" as={HashLink} to="/login">Login</Nav.Link>
                         }
                         <Navbar.Text>
                             Signed in as: <a href="#login">{user.displayName}</a>
