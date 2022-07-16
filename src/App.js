@@ -15,7 +15,8 @@ function App() {
       <AuthProvider>
         <Header></Header>
         <Routes>
-          <Route path="/home" element={<Home></Home>}></Route>
+          <Route exact path="/" element={<Home></Home>}></Route>
+          <Route exact path="/home" element={<Home></Home>}></Route>
           <Route path="/about" element={<About></About>}></Route>
           <Route path="/booking/:serviceId" element={<Booking />} />
           <Route path="/login" element={<Login />} />
